@@ -38,8 +38,10 @@ int validating_word(char* letters, char* word)
 		for (int j = 0;j < size_l;j++)
 		{
 			if (word[i] == letters[j])
+			{	
 				letters[j] = ' ';
-			break;
+				break;
+			}
 		}
 	}
 	int num = 0;
