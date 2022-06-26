@@ -66,6 +66,32 @@ void add_word_in_tree(struct node_t* root, char*word)
 	
 }
 
+struct node_t* make_tree(char* file_directory)
+{
+	struct node_t* root = malloc(sizeof(root));
+	root->children = NULL;
+	root->end_word = 0;
+	root->key = NULL;
+	root->num_children = 0;
+	FILE* word_file;
+	word_file = fopen(file_directory, "r");
+	fseek(word_file, 0, SEEK_END);
+	int len = ftell(word_file);
+	rewind(word_file);
+	char* buffer = malloc(sizeof(char) * len);
+	fread(buffer, len, 1, word_file);
+	char* word = strtok(buffer, " ");
+	char* buffer_ptr = buffer;
+	buffer_ptr += len;
+	*buffer_ptr = '\0';
+	while (word != NULL)
+	{
+		add_word_in_tree(root, word);
+		word = strtok(NULL, " ");
+	}
+	return root;
+}
+
 
 int main()
 {
