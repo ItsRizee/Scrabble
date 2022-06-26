@@ -23,5 +23,12 @@ int validate_word(struct node_t* tree, char* word)
 		if (!found_match)
 			return 0;
 	}
-	return tree->end_word;
+	if(tree->end_word)
+	{
+		tree->end_word=0;
+		return 1;
+	}
+	else
+		return 0;
+	
 }
