@@ -1,5 +1,8 @@
 #include "Nadya.h"
 #include "struct_tree.h"
+#include <stdio.h>
+#include <string.h>
+#include <malloc.h>
 
 int validate_word(struct node_t* tree, char* word)
 {
