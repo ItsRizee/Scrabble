@@ -39,6 +39,7 @@ int validating_word(char* letters, char* word)
 		{
 			if (word[i] == letters[j])
 				letters[j] = ' ';
+			break;
 		}
 	}
 	int num = 0;
